@@ -1,7 +1,7 @@
 ﻿using shutdown.frontend.Controls;
+using shutdown_pc;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace shutdown.frontend
@@ -20,10 +20,7 @@ namespace shutdown.frontend
 
             contexMenuStrip.Items.AddRange(GetTsmItem());
 
-            if (System.Diagnostics.Debugger.IsAttached)
-                NotifyIcon.Icon = new Icon("../../../Resources/tray.ico");
-            else
-                NotifyIcon.Icon = new Icon(string.Format(@"{0}\tray.ico", System.IO.Path.GetDirectoryName(Application.ExecutablePath)));
+            NotifyIcon.Icon = Resource.tray;
 
             NotifyIcon.ContextMenuStrip = contexMenuStrip;
             NotifyIcon.Text = "shutdown-pc";
